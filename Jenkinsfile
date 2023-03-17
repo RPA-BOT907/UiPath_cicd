@@ -50,3 +50,5 @@ pipeline {
 	                echo 'Testing..the workflow...'
 	            }
 	        }
+	    }
+}
