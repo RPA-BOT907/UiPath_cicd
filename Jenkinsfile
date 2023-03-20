@@ -53,7 +53,7 @@ pipeline {
 		    
 		    
 	         // Deploy Stages
-	        stage('Deploy to UAT') {
+	       stage('Deploy to UAT') {
 	            steps {
 	                echo "Deploying ${BRANCH_NAME} to UAT "
                 UiPathDeploy (
@@ -62,12 +62,10 @@ pipeline {
                 orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
                 folderName: "${UIPATH_ORCH_FOLDER_NAME}",
                 environments: 'DEV',
-                //credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: 'HI8VFSqNMY8dGjHJXyb8Up2V7R2_fztzFK3T_5i4KkdIF']
-                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'HI8VFSqNMY8dGjHJXyb8Up2V7R2_fztzFK3T_5i4KkdIF'), 
+                //credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: 'APIUserKey']
+                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'), 
 				traceLevel: 'None',
 				entryPointPaths: 'Main.xaml'
-	
-
 	        )
 	            }
 	        }
